@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title></title>
+  <title>Ensemilla2</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -40,13 +40,6 @@
     h1, h2 {
       color: #394030;
     }
-    .productos img {
-      max-width: 200px;
-      margin: 10px;
-      border: 1px solid #ddd;
-      padding: 5px;
-      background: #fff;
-    }
     footer {
       text-align: center;
       padding: 15px;
@@ -70,23 +63,38 @@
     form button:hover {
       background:#A07845;
     }
+
+    /* ---- ESTILOS DEL CARRUSEL ---- */
+    .slider {
+      position: relative;
+      max-width: 350px;   /* tamaño del carrusel */
+      margin: auto;
+    }
+    .slide {
+      width: 100%;
+      display: none;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
   </style>
 </head>
 <body>
+
 <header style="text-align: center; padding: 20px;">
     <img src="Logoo.png" alt="Logoo" style="width:300px;">
-</header>
-
-
-
-
-
-
-
-<header>
-  <h1></h1>
-  <p> </p>
-  
 </header>
 
 <nav>
@@ -101,26 +109,28 @@
   <h2>Bienvenidos</h2>
   <p>Bienvenidos a Ensemilla2. Somos un grupo de jóvenes que creamos bolsas de semillas aromatizadas para ayudarte a sentir mejor, con calor o frío y aroma donde estés.</p>
 </section>
-  <!-- Podés agregar una foto aquí -->
- 
-  <section id="productos" class="seccion">
+
+<section id="productos" class="seccion">
   <h2>Productos</h2>
-  <div class="galeria">
-    <img src="bolsa.jpg" alt="Bolsa nueva" width="200" height="150">
-    <img src="cuello.jpg" alt="Bolsa cuello" width="200" height="150">
-    <img src="jaja2.jpg" alt="Bolsa jaja2"width="220" height="150">
+  <div class="slider">
+    <img class="slide" src="bolsa2.jpg" alt="bolsa2" style="display:block">
+    <img class="slide" src="f1.jpg" alt="f1">
+    <img class="slide" src="f2.jpg" alt="f2">
+    <img class="slide" src="bolsa3.jpg" alt="bolsa3">
+    <img class="slide" src="bolsa4.jpg" alt="bolsa4">
+
+    <button class="prev" onclick="cambiar(-1)">&#10094;</button>
+    <button class="next" onclick="cambiar(1)">&#10095;</button>
   </div>
 </section>
 
-  <section id="quienes-somos" class="seccion">
+<section id="quienes-somos" class="seccion">
   <h2>¿Quiénes Somos?</h2>
   <p>Ensemilla2 es un emprendimiento de hijos de funcionarios de CUTCSA, dirigido por un programa de Empresas Juveniles de DESEM JA. 
   Al notar que muchas personas conviven con dolores y estrés, decidimos ofrecer una opción natural y accesible para el bienestar: nuestras bolsas de semillas aromatizadas.</p>
 </section>
 
-
-
- <section id="Funcionamiento" class="seccion">
+<section id="Funcionamiento" class="seccion">
   <h2>¿Cómo funciona nuestro producto?</h2>
   <p>Nuestra bolsa de semillas aromatizada es una opción natural, reutilizable y práctica para aliviar dolores físicos y reducir el estrés.</p>
 
@@ -141,27 +151,24 @@
   </ul>
 </section>
 
-
 <section id="contacto">
   <h2>Contacto</h2>
   <p>
-  <img src="arroba.png" alt="Email" width="17" height="17">
-  empresajuvenilcutcsa2025@gmail.com
-<p>
+    <img src="arroba.png" alt="Email" width="17" height="17">
+    empresajuvenilcutcsa2025@gmail.com
+  </p>
+  <p>
     <img src="ig.png" alt="Instagram" width="15" height="15">
     ensemilla2_ej
   </p>
- <p>
-  <img src="fa.png" alt="Facebook" width="15" height="15">
-  Ensemilla2
-</p>
- <p>
-  <img src="tik.png" alt="TikTok" width="20" height="20">
-ensemilla2_ej
-</p>
-
-
-
+  <p>
+    <img src="fa.png" alt="Facebook" width="15" height="15">
+    Ensemilla2
+  </p>
+  <p>
+    <img src="tik.png" alt="TikTok" width="20" height="20">
+    ensemilla2_ej
+  </p>
 
   <h3>Enviános un mensaje</h3>
   <form>
@@ -182,11 +189,16 @@ ensemilla2_ej
   <p>© 2025 Empresa Juvenil CUTCSA - Todos los derechos reservados</p>
 </footer>
 
+<!-- ---- SCRIPT DEL CARRUSEL ---- -->
+<script>
+let index = 0;
+function cambiar(n) {
+  let slides = document.getElementsByClassName("slide");
+  slides[index].style.display = "none";
+  index = (index + n + slides.length) % slides.length;
+  slides[index].style.display = "block";
+}
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
